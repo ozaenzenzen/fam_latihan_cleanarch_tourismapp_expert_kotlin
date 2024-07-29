@@ -18,7 +18,8 @@ buildscript {
     ext.material_version = "1.2.1"
     ext.glide_version = "4.11.0"
 
-    ext.room_version = "2.2.5"
+    // ext.room_version = "2.2.5"
+    ext.room_version = "2.4.0-alpha03"
 
     repositories {
         google()
