@@ -6,16 +6,11 @@ import com.dicoding.tourismapp.core.domain.model.Tourism
 import com.dicoding.tourismapp.core.domain.repository.ITourismRepository
 
 class TourismInteractor(private val tourismRepository: ITourismRepository) : TourismUseCase {
-    override fun getAllTourism(): LiveData<Resource<List<Tourism>>> {
-        TODO("Not yet implemented")
-    }
 
-    override fun getFavoriteTourism(): LiveData<List<Tourism>> {
-        TODO("Not yet implemented")
-    }
+    override fun getAllTourism() = tourismRepository.getAllTourism()
 
-    override fun setFavoriteTourism(tourism: Tourism, state: Boolean) {
-        TODO("Not yet implemented")
-    }
+    override fun getFavoriteTourism() = tourismRepository.getFavoriteTourism()
 
+    override fun setFavoriteTourism(tourism: Tourism, state: Boolean) =
+        tourismRepository.setFavoriteTourism(tourism, state)
 }
