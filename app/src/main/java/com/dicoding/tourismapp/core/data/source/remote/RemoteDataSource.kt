@@ -30,7 +30,7 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             }
     }
 
-    fun getAllTourism(): Flow<ApiResponse<List<TourismResponse>>> {
+    suspend fun getAllTourism(): Flow<ApiResponse<List<TourismResponse>>> {
         return flow {
             try {
                 val response = apiService.getList()
