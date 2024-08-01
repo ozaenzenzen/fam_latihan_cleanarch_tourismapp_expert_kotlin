@@ -2,7 +2,6 @@ package com.dicoding.tourismapp.core.data
 
 import android.provider.ContactsContract.Data
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import com.dicoding.tourismapp.core.data.source.remote.network.ApiResponse
 import com.dicoding.tourismapp.core.data.source.local.LocalDataSource
 import com.dicoding.tourismapp.core.data.source.local.entity.TourismEntity
@@ -36,8 +35,8 @@ class TourismRepository @Inject constructor(
 //            }
 //    }
 
-    override fun getAllTourism(): Flow<Resource<List<Tourism>>> =
-        object : NetworkBoundResource<List<Tourism>, List<TourismResponse>>(appExecutors) {
+    override fun getAllTourism(): Flow<com.dicoding.tourismapp.core.data.Resource<List<Tourism>>> =
+        object : com.dicoding.tourismapp.core.data.NetworkBoundResource<List<Tourism>, List<TourismResponse>>(appExecutors) {
             override fun loadFromDB(): Flow<List<Tourism>> {
                 return localDataSource.getAllTourism().map { DataMapper.mapEntitiesToDomain(it) }
             }
